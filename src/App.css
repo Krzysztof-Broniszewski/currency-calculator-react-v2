@@ -1,38 +1,152 @@
-.App {
-  text-align: center;
+html {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*,
+::before,
+::after {
+  box-sizing: inherit;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.body {
+  max-width: 1000px;
+  background-color: black;
+  background-image: url("./shutterstock_24858553.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
   color: white;
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+@keyframes dancingSquare {
+  0% {
+    transform: rotateZ(0);
+    transform: perspective(400px) rotateY(0);
+    width: 300px;
+    height: 300px;
+    background-color: blue;
+  }
+
+  50% {
+    background-color: rgb(136, 20, 245);
+    border-radius: 50%;
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+    transform: perspective(400px) rotateY(360deg);
+    left: 0%;
+    top: 0%;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.small_square {
+  position: absolute;
+  z-index: 1;
+  font-size: 60px;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  width: 300px;
+  height: 300px;
+  background-color: red;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  animation-name: dancingSquare;
+  animation-duration: 8s;
+  transform-origin: 50% 50% 200px;
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
+  justify-items: center;
+  align-items: center;
+}
+
+.square {
+  z-index: 2;
+  position: absolute;
+  display: flex;
+  top: 25%;
+  max-width: 500px;
+  height: 500px;
+  backdrop-filter: blur(5px);
+  background: rgba(106, 106, 167, .2);
+  border: 1px solid blue;
+  border-radius: 10px;
+  box-shadow: 5px 5px 3px rgb(82, 82, 201);
+  text-align: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.form {
+  background-color: transparent;
+  color: white;
+  font-size: 25px;
+  margin: 10px;
+}
+
+.form__header {
+  background-color: transparent;
+  font-size: 40px;
+  text-shadow: black;
+}
+
+.form__amount {
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+}
+
+.form__currency {
+  width: 100%;
+}
+
+.form__fieldsetLabel {
+  width: 100%;
+}
+
+.form__value {
+  text-align: center;
+  color: black;
+}
+
+.form__value {
+  width: 100%;
+}
+
+.form__date {
+  display: inline-block;
+  width: 100%;
+}
+
+.form__result {
+  color: red;
+}
+
+.form__button {
+  background-color: grey;
+  color: white;
+  font-size: 25px;
+  margin-top: 5px;
+  padding: 10px 20px;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.form__fieldset {
+  border-radius: 10px;
+}
+
+.form__warning {
+  color: red;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  font-size: 30px;
+  color: black;
 }
