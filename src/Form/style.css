@@ -1,0 +1,72 @@
+.form {
+    background-color: rgb(231, 223, 223);
+    color: rgb(134, 43, 43);
+    font-size: 25px;
+    padding: 10px;
+    margin: auto;
+    border-radius: 20px;
+    border: 2px solid rgb(134, 43, 43);
+    text-align: center;
+    justify-content: center;
+}
+
+.form__header {
+    background-color: transparent;
+    font-size: 40px;
+    text-shadow: black;
+    color: rgb(134, 43, 43);
+}
+
+.form__info {
+    font-size: 20px;
+}
+
+.form__amount {
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+}
+
+.form__currency {
+    width: 100%;
+}
+
+.form__fieldsetLabel {
+    width: 100%;
+}
+
+.form__value {
+    text-align: center;
+    color: black;
+}
+
+.form__value {
+    width: 100%;
+}
+
+.form__date {
+    display: inline-block;
+    width: 100%;
+}
+
+.form__result {
+    color: red;
+}
+
+.form__button {
+    background-color: rgb(134, 43, 43);
+    color: white;
+    font-size: 25px;
+    margin-top: 5px;
+    padding: 10px 30px;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.form__fieldset {
+    border-radius: 10px;
+}
+
+.form__warning {
+    color: red;
+}

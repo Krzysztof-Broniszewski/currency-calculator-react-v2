@@ -1,14 +1,13 @@
-html {
-  box-sizing: border-box;
+.app {
+  flex-basis: 700;
+  margin: 20px;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 0 30px black;
 }
 
-*,
-::before,
-::after {
-  box-sizing: inherit;
-}
-
-.body {
+/* .body {
   max-width: 1000px;
   background-color: black;
   color: white;
@@ -139,4 +138,4 @@ html {
 
 .form__warning {
   color: red;
-}
+} */
