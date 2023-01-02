@@ -59,7 +59,7 @@ export const Form = ({ calculateResult, result }) => {
                 <button className="form__button">Przelicz</button>
             </p>
             <p className="form__info">
-                Kursy pochodzą ze strony nbp.pl&nbsp; z dnia 31.12.2022
+                Kursy pochodzą ze strony nbp.pl&nbsp; Tabela nr 001/A/NBP/2023 z dnia 2023-01-02
             </p>
             <Result result={result} />
             <Footer title="© 2022 Krzysztof Broniszewski -&nbsp; Wszelkie prawa zastrzeżone." />
