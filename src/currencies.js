@@ -19,4 +19,9 @@ export const currencies = [
         name: "Frank szwajcarski",
         rate: 4.7679,
     },
+    {
+        short: "CZK",
+        name: "Korona czeska",
+        rate: 0.1942,
+    },
 ];

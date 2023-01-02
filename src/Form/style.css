@@ -21,36 +21,9 @@
     font-size: 20px;
 }
 
-.form__amount {
-    width: 100%;
+.form__field {
+    border-radius: 5px;
     text-align: center;
-    font-size: 25px;
-}
-
-.form__currency {
-    width: 100%;
-}
-
-.form__fieldsetLabel {
-    width: 100%;
-}
-
-.form__value {
-    text-align: center;
-    color: black;
-}
-
-.form__value {
-    width: 100%;
-}
-
-.form__date {
-    display: inline-block;
-    width: 100%;
-}
-
-.form__result {
-    color: red;
 }
 
 .form__button {
@@ -61,12 +34,4 @@
     padding: 10px 30px;
     border: 2px solid white;
     border-radius: 10px;
-}
-
-.form__fieldset {
-    border-radius: 10px;
-}
-
-.form__warning {
-    color: red;
 }

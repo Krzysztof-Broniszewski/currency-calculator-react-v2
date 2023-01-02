@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { currencies } from "../currencies";
 import { Result } from "../Result";
+import Footer from "../Footer";
 import "./style.css";
 
 export const Form = ({ calculateResult, result }) => {
@@ -58,9 +59,10 @@ export const Form = ({ calculateResult, result }) => {
                 <button className="form__button">Przelicz</button>
             </p>
             <p className="form__info">
-                Kursy pochodzą ze strony nbp.pl z dnia 31.12.2022
+                Kursy pochodzą ze strony nbp.pl&nbsp; z dnia 31.12.2022
             </p>
             <Result result={result} />
+            <Footer title="© 2022 Krzysztof Broniszewski -&nbsp; Wszelkie prawa zastrzeżone." />
         </form>
     );
 };
