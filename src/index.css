@@ -23,7 +23,7 @@ html {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-image: url("shutterstock_68081092.jpg");
+  background-image: url("../public/images/shutterstock_68081092.jpg");
   background-size: cover;
   background-position: center;
 }

@@ -1,9 +1,8 @@
-import React from "react";
 import "./style.css";
 
-export const Result = ({ result }) => (
+const Result = ({ result }) => (
     <p className="result">
-        {result !== undefined && (
+        {!!result && (
             <>
                 {result.sourceAmount.toFixed(2)}&nbsp;PLN&nbsp;=&nbsp;
                 
@@ -14,3 +13,5 @@ export const Result = ({ result }) => (
         )}
     </p>
 )
+
+export default Result;
