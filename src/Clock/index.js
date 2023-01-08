@@ -2,24 +2,22 @@ import { useEffect, useState } from "react";
 import "./style.css";
 
 const Clock = () => {
-    const [clockState, setClockState] = useState();
-    const showDate = new Date();
+    const showDateTime = new Date().toLocaleString();
+    const [clockState, setClockState] = useState(showDateTime);
+    
+    const updateDateTime = () => {
+        const showDateTime = new Date().toLocaleString();
+        setClockState(showDateTime)
+    }
 
     useEffect(() => {
         setInterval(() => {
-            setClockState(showDate.toLocaleString());
+            updateDateTime()
         }, 1000);
     }, []);
     return (
         <p className="clock">
-            <>
-                <p>
-                    {clockState}
-                </p>
-                <p>
-                    Dziś jest: {showDate.toLocaleString()}
-                </p>
-            </>
+            Dziś jest: {clockState}
         </p>
     );
 };
