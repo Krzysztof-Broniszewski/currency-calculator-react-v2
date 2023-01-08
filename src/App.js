@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import { Form } from './Form';
-import {currencies} from './currencies';
+import { currencies } from './currencies';
 
 function App() {
   const [result, setResult] = useState();
@@ -17,7 +17,7 @@ function App() {
   }
 
       return (
-      <div className="app">
+        <div className="app">
         <Form
           result={result}
           calculateResult={calculateResult}

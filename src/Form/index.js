@@ -2,6 +2,7 @@ import { useState } from "react";
 import { currencies } from "../currencies";
 import Result from "../Result";
 import Footer from "../Footer";
+import Clock from "../Clock";
 import "./style.css";
 
 export const Form = ({ calculateResult, result }) => {
@@ -15,6 +16,7 @@ export const Form = ({ calculateResult, result }) => {
 
     return (
         <form className="form" onSubmit={onSubmit}>
+            <Clock/>
             <h1 className="form__header">
                 Przelicznik walut
             </h1>
