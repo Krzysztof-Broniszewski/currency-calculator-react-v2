@@ -6,17 +6,17 @@ import Clock from "../Clock";
 import "./style.css";
 
 export const Form = ({ calculateResult, result }) => {
-    const [currency, setCurrency] = useState(currencies[1].short);
+    const [currencyName, setcurrencyName] = useState(currencies[1].code);
     const [amount, setAmount] = useState("");
 
     const onSubmit = (event) => {
         event.preventDefault();
-        calculateResult(currency, amount);
+        calculateResult(currencyName, amount);
     }
 
     return (
         <form className="form" onSubmit={onSubmit}>
-            <Clock/>
+            <Clock />
             <h1 className="form__header">
                 Przelicznik walut
             </h1>
@@ -43,15 +43,15 @@ export const Form = ({ calculateResult, result }) => {
                     </span>
                     <select
                         className="form__field"
-                        value={currency}
-                        onChange={({ target }) => setCurrency(target.value)}
+                        value={currencyName}
+                        onChange={({ target }) => setcurrencyName(target.value)}
                     >
-                        {currencies.map((currency => (
+                        {currencies.map((currencyName => (
                             <option
-                                key={currency.short}
-                                value={currency.short}
+                                key={currencyName.code}
+                                value={currencyName.code}
                             >
-                                {currency.name}
+                                {currencyName.currency}
                             </option>
                         )))}
                     </select>
@@ -61,7 +61,7 @@ export const Form = ({ calculateResult, result }) => {
                 <button className="form__button">Przelicz</button>
             </p>
             <p className="form__info">
-                Kursy pochodzą ze strony nbp.pl&nbsp; Tabela nr 001/A/NBP/2023 z dnia 2023-01-02
+                Kursy pochodzą ze strony nbp.pl&nbsp; Tabela nr 001/A/NBP/2023 z dnia 2023-01-21
             </p>
             <Result result={result} />
             <Footer title="© 2022 Krzysztof Broniszewski -&nbsp; Wszelkie prawa zastrzeżone." />

@@ -17,6 +17,8 @@ This funcion is added by Java Script file.
 - Java Script ES6+
 - BEM convension
 - normalize.css
+- useState
+- useEffect
 
 ## DEMO: https://krzysztof-broniszewski.github.io/currency-calculator-react-v2/
 

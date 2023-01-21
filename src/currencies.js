@@ -1,27 +1,27 @@
 export const currencies = [
     {
-        short: "USD",
-        name: "Dolar amerykański",
-        rate: 4.43811,
+        code: "USD",
+        currency: "Dolar amerykański",
+        rate: 4.3520,
     },
     {
-        short: "EUR",
-        name: "Euro",
-        rate: 4.6784,
+        code: "EUR",
+        currency: "Euro",
+        rate: 4.7137,
     },
     {
-        short: "GBP",
-        name: "Funt brytyjski",
-        rate: 5.2768,
+        code: "GBP",
+        currency: "Funt brytyjski",
+        rate: 5.3711,
     },
     {
-        short: "CHF",
-        name: "Frank szwajcarski",
-        rate: 4.7378,
+        code: "CHF",
+        currency: "Frank szwajcarski",
+        rate: 4.7281,
     },
     {
-        short: "CZK",
-        name: "Korona czeska",
-        rate: 0.1936,
+        code: "CZK",
+        currency: "Korona czeska",
+        rate: 0.1969,
     },
 ];
