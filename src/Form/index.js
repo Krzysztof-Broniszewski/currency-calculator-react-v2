@@ -3,7 +3,16 @@ import { currencies } from "../currencies";
 import Result from "../Result";
 import Footer from "../Footer";
 import Clock from "../Clock";
-import "./style.css";
+import {
+    StyledForm,
+    StyledHeader,
+    StyledLabel,
+    StyledInput,
+    StyledField,
+    StyledButton,
+    StyledInfo
+} from "./styled";
+import { theme } from "../theme";
 
 export const Form = ({ calculateResult, result }) => {
     const [currencyName, setcurrencyName] = useState(currencies[1].code);
@@ -15,56 +24,55 @@ export const Form = ({ calculateResult, result }) => {
     }
 
     return (
-        <form className="form" onSubmit={onSubmit}>
+        <StyledForm
+            theme={theme}
+            onSubmit={onSubmit}>
             <Clock />
-            <h1 className="form__header">
+            <StyledHeader theme= {theme}>
                 Przelicznik walut
-            </h1>
+            </StyledHeader>
             <p>
-                <label>
-                    <span className="form__labelText">
-                        Kwota w zł*:
-                    </span>
-                    <input
-                        value={amount}
-                        onChange={({ target }) => setAmount(target.value)}
-                        placeholder="Wpisz kwotę w zł"
-                        className="form__field"
-                        type="number"
-                        required
-                        step="0.01"
-                    />
-                </label>
+                <StyledLabel theme={theme}>
+                    Kwota w zł*:
+                </StyledLabel>
+                <StyledInput
+                    value={amount}
+                    onChange={({ target }) => setAmount(target.value)}
+                    placeholder="Wpisz kwotę w zł"
+                    className="form__field"
+                    type="number"
+                    required
+                    step="0.01"
+                />
             </p>
             <p>
-                <label>
-                    <span>
-                        Waluta:
-                    </span>
-                    <select
-                        className="form__field"
-                        value={currencyName}
-                        onChange={({ target }) => setcurrencyName(target.value)}
-                    >
-                        {currencies.map((currencyName => (
-                            <option
-                                key={currencyName.code}
-                                value={currencyName.code}
-                            >
-                                {currencyName.currency}
-                            </option>
-                        )))}
-                    </select>
-                </label>
+                <StyledLabel theme={theme}>
+                    Waluta:
+                </StyledLabel>
+                <StyledField
+                    value={currencyName}
+                    onChange={({ target }) => setcurrencyName(target.value)}
+                >
+                    {currencies.map((currencyName => (
+                        <option
+                            key={currencyName.code}
+                            value={currencyName.code}
+                        >
+                            {currencyName.currency}
+                        </option>
+                    )))}
+                </StyledField>
             </p>
             <p>
-                <button className="form__button">Przelicz</button>
+                <StyledButton theme={theme}>
+                    Przelicz
+                </StyledButton>
             </p>
-            <p className="form__info">
+            <StyledInfo>
                 Kursy pochodzą ze strony nbp.pl&nbsp; Tabela nr 001/A/NBP/2023 z dnia 2023-01-21
-            </p>
+            </StyledInfo>
             <Result result={result} />
             <Footer title="© 2022 Krzysztof Broniszewski -&nbsp; Wszelkie prawa zastrzeżone." />
-        </form>
+        </StyledForm>
     );
 };
