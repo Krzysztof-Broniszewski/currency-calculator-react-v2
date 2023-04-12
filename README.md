@@ -19,6 +19,7 @@ This funcion is added by Java Script file.
 - normalize.css
 - useState
 - useEffect
+- Styled Components
 
 ## DEMO: https://krzysztof-broniszewski.github.io/currency-calculator-react-v2/
 
