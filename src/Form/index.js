@@ -69,10 +69,10 @@ export const Form = ({ calculateResult, result }) => {
                 </StyledButton>
             </p>
             <StyledInfo>
-                Kursy pochodzą ze strony nbp.pl&nbsp; Tabela nr 001/A/NBP/2023 z dnia 2023-01-21
+                Kursy pochodzą ze strony nbp.pl&nbsp; Tabela nr 091/A/NBP/2023 z dnia 2023-05-12
             </StyledInfo>
             <Result result={result} />
-            <Footer title="© 2022 Krzysztof Broniszewski -&nbsp; Wszelkie prawa zastrzeżone." />
+            <Footer title="© 2022 Krzysztof Broniszewski -&nbsp; Wszelkie prawa zastrzeżone" />
         </StyledForm>
     );
 };

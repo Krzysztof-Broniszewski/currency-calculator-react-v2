@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledResult = styled.p`
-    color: rgb(134, 43, 43);
+    color: ${({theme}) => theme.color.maroon};
     text-align: center;
-    font-size: 20px;
+    font-size: 30px;
 `;

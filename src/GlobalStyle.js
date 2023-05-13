@@ -36,4 +36,13 @@ export const GlobalStyle = createGlobalStyle`
         font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
             monospace;
     }
-`
+
+    .app {
+        flex-basis: 700;
+        margin: 20;
+        padding: 40px;
+        background: ${({theme}) => theme.color.white};
+        border-radius: 20px;
+        box-shadow: 0 0 30px ${({theme}) => theme.color.black};
+    }
+    `
