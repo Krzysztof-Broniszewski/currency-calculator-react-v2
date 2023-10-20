@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { currencies } from "../currencies";
+import { currencies, useRatesData } from "../currencies";
 import Result from "../Result";
 import Footer from "../Footer";
 import Clock from "../Clock";
@@ -10,33 +10,64 @@ import {
     StyledInput,
     StyledField,
     StyledButton,
-    StyledInfo
+    StyledInfo,
 } from "./styled";
 import { theme } from "../theme";
 
-export const Form = ({ calculateResult, result }) => {
-    const [currencyName, setcurrencyName] = useState(currencies[1].code);
-    const [amount, setAmount] = useState("");
+export const Form = () => {
+    const [result, setResult] = useState();
+    const ratesData = useRatesData();
+    console.log(ratesData);
 
-    const onSubmit = (event) => {
-        event.preventDefault();
-        calculateResult(currencyName, amount);
+    const calculateResult = (currency, amount) => {
+        const rate = ratesData.rates[currency];
+
+        setResult({
+            sourceAmount: +amount,
+            targetAmount: amount * rate,
+            currency,
+        });
     }
+
+// export const Form = ({ calculateResult, result }) => {
+//     const [currencyName, setCurrencyName] = useState(currencies[1].code);
+//     const [amount, setAmount] = useState("");
+//     // const [date_nbp, setDateNbp] = useState(data_nbp);
+
+//     const text = "test";
+
+//     const onSubmit = (event) => {
+//         event.preventDefault();
+//         calculateResult(currencyName, amount);
 
     return (
         <StyledForm
             theme={theme}
-            onSubmit={onSubmit}>
+            onSubmit={theme}>
             <Clock />
             <StyledHeader theme= {theme}>
                 Przelicznik walut
             </StyledHeader>
+            {/* {ratesData.state === "loading"
+                ? (
+                    <Loading>
+                        Sekundka... <br />Ładuję kursy walut ze strony Banku.
+                    </Loading>
+                )
+                : (
+                    ratesData.state === "error" ? (
+                        <Failure>
+                            Hmm... Coś poszło nie tak, sprawdź czy masz połączenie z internetem.
+                        </Failure>
+                    ) : 
+                )
+            } */}
             <p>
                 <StyledLabel theme={theme}>
                     Kwota w zł*:
                 </StyledLabel>
                 <StyledInput
-                    value={amount}
+                    value={theme}
                     onChange={({ target }) => setAmount(target.value)}
                     placeholder="Wpisz kwotę w zł"
                     className="form__field"
@@ -51,7 +82,7 @@ export const Form = ({ calculateResult, result }) => {
                 </StyledLabel>
                 <StyledField
                     value={currencyName}
-                    onChange={({ target }) => setcurrencyName(target.value)}
+                    onChange={({ target }) => setCurrencyName(target.value)}
                 >
                     {currencies.map((currencyName => (
                         <option
@@ -69,7 +100,7 @@ export const Form = ({ calculateResult, result }) => {
                 </StyledButton>
             </p>
             <StyledInfo>
-                Kursy pochodzą ze strony nbp.pl&nbsp; Tabela nr 091/A/NBP/2023 z dnia 2023-05-12
+                Kursy pochodzą ze strony nbp.pl&nbsp; Tabela nr  z dnia
             </StyledInfo>
             <Result result={result} />
             <Footer title="© 2022 Krzysztof Broniszewski -&nbsp; Wszelkie prawa zastrzeżone" />

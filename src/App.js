@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { currencies } from './currencies';
+import { currencies, currencies_nbp } from './currencies';
 import { Form } from './Form';
 
 function App() {
