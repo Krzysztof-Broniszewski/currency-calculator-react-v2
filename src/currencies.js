@@ -25,3 +25,4 @@ export const currencies = [
         rate: 0.1926,
     },
 ];
+
