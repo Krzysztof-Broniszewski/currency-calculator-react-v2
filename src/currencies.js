@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const currencies = [
     {
         code: "USD",
@@ -26,3 +28,14 @@ export const currencies = [
     },
 ];
 
+
+// export const axiosNbp = async () => {
+//     try {
+//         const response = await axios.get('http://api.nbp.pl/api/exchangerates/tables/A/?format=json')
+//         return response
+//     } catch (error) {
+//         console.error(error);
+//     }
+// };
+
+// axiosNbp();

@@ -10,25 +10,40 @@ import {
     StyledInput,
     StyledField,
     StyledButton,
-    StyledInfo
+    StyledInfo,
+    Loading,
+    Failure,
 } from "./styled";
 import { theme } from "../theme";
+import { useRatesData } from "./useRatesData";
 
-export const Form = ({ calculateResult, result }) => {
-    const [currencyName, setcurrencyName] = useState(currencies[1].code);
+export const Form = () => {
+    const [result, setResult] = useState();
+    const ratesData = useRatesData();
+
+    const calculateResult = (currency, amount) => {
+        const rate = ratesData[1].currency;
+
+        setResult({
+            sourceAmount: +amount,
+            targetAmount: amount * rate,
+            currency,
+        });
+    }
+
+    const [currency, setCurrency] = useState("EUR");
     const [amount, setAmount] = useState("");
 
     const onSubmit = (event) => {
         event.preventDefault();
-        calculateResult(currencyName, amount);
+        calculateResult(currency, amount);
     }
 
     return (
         <StyledForm
-            theme={theme}
             onSubmit={onSubmit}>
             <Clock />
-            <StyledHeader theme= {theme}>
+            <StyledHeader>
                 Przelicznik walut
             </StyledHeader>
             <p>
@@ -50,8 +65,8 @@ export const Form = ({ calculateResult, result }) => {
                     Waluta:
                 </StyledLabel>
                 <StyledField
-                    value={currencyName}
-                    onChange={({ target }) => setcurrencyName(target.value)}
+                    // value={currencyName}
+                    // onChange={({ target }) => setcurrencyName(target.value)}
                 >
                     {currencies.map((currencyName => (
                         <option

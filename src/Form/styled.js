@@ -49,3 +49,11 @@ export const StyledLabel = styled.span`
     color: ${({ theme }) => theme.color.maroon};
 `;
 
+export const Loading = styled.p`
+    color: ${({ theme }) => theme.color.maroon};
+`;
+
+export const Failure = styled.p`
+    color: ${({ theme }) => theme.color.red};
+`;
+
