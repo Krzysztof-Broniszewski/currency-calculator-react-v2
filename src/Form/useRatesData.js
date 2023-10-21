@@ -15,7 +15,6 @@ export const useRatesData = () => {
                 }
 
                 const { rates, date } = await response.json();
-
                 setRatesData({
                     state: "success",
                     rates,

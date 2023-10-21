@@ -22,7 +22,7 @@ export const Form = () => {
     const ratesData = useRatesData();
 
     const calculateResult = (currency, amount) => {
-        const rate = ratesData[1].currency;
+        const rate = ratesData[1].code;
 
         setResult({
             sourceAmount: +amount,
@@ -46,43 +46,62 @@ export const Form = () => {
             <StyledHeader>
                 Przelicznik walut
             </StyledHeader>
-            <p>
-                <StyledLabel theme={theme}>
-                    Kwota w zł*:
-                </StyledLabel>
-                <StyledInput
-                    value={amount}
-                    onChange={({ target }) => setAmount(target.value)}
-                    placeholder="Wpisz kwotę w zł"
-                    className="form__field"
-                    type="number"
-                    required
-                    step="0.01"
-                />
-            </p>
-            <p>
-                <StyledLabel theme={theme}>
-                    Waluta:
-                </StyledLabel>
-                <StyledField
-                    // value={currencyName}
-                    // onChange={({ target }) => setcurrencyName(target.value)}
-                >
-                    {currencies.map((currencyName => (
-                        <option
-                            key={currencyName.code}
-                            value={currencyName.code}
-                        >
-                            {currencyName.currency}
-                        </option>
-                    )))}
-                </StyledField>
-            </p>
-            <p>
-                <StyledButton theme={theme}>
-                    Przelicz
-                </StyledButton>
-            </p>
+            {ratesData.state === "loading"
+                ? (
+                    <Loading>
+                        Sekundka... <br />Ładuję kursy walut ze strony NBP
+                    </Loading>
+                )
+                : (
+                    ratesData.state === "error" ? (
+                        <Failure>
+                            Hmm... Coś poszło nie tak. Sprawdź czy masz połączenie z internetem?
+                        </Failure>
+                    ) : (
+                            <>
+                                <p>
+                                    <StyledLabel>
+                                        Kwota w zł*:
+                                    </StyledLabel>
+                                    <StyledInput
+                                        value={amount}
+                                        onChange={({ target }) => setAmount(target.value)}
+                                        placeholder="Wpisz kwotę w zł"
+                                        className="form__field"
+                                        type="number"
+                                        required
+                                        step="0.01"
+                                    />
+                                </p>
+                                <p>
+                                    <StyledLabel>
+                                        Waluta:
+                                    </StyledLabel>
+                                    <StyledField
+                                        as="select"
+                                        value={currency}
+                                        onChange={({ target }) => setCurrency(target.value)}
+                                    >
+                                        {Object.keys(ratesData).map(((currency) => (
+                                            <option
+                                                key={currency}
+                                                value={currency}
+                                            >
+                                                {currency}
+                                            </option>
+                                        )))}
+                                    </StyledField>
+                                </p>
+                                <p>
+                                    <StyledButton theme={theme}>
+                                        Przelicz
+                                    </StyledButton>
+                                </p>    
+                            </>
+                    )  
+                )
+            }
+            
             <StyledInfo>
                 Kursy pochodzą ze strony nbp.pl&nbsp; Tabela nr 091/A/NBP/2023 z dnia 2023-05-12
             </StyledInfo>
