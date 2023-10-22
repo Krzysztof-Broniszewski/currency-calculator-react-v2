@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { currencies } from "../currencies";
+// import { currencies } from "../currencies";
 import Result from "../Result";
 import Footer from "../Footer";
 import Clock from "../Clock";
@@ -17,12 +17,13 @@ import {
 import { theme } from "../theme";
 import { useRatesData } from "./useRatesData";
 
+
 export const Form = () => {
     const [result, setResult] = useState();
     const ratesData = useRatesData();
 
     const calculateResult = (currency, amount) => {
-        const rate = ratesData[1].code;
+        const rate = ratesData;
 
         setResult({
             sourceAmount: +amount,
@@ -38,6 +39,8 @@ export const Form = () => {
         event.preventDefault();
         calculateResult(currency, amount);
     }
+
+    // const rates = ratesData ? Object.keys(ratesData) : [];
 
     return (
         <StyledForm
@@ -82,9 +85,9 @@ export const Form = () => {
                                         value={currency}
                                         onChange={({ target }) => setCurrency(target.value)}
                                     >
-                                        {Object.keys(ratesData).map(((currency) => (
+                                        {Object.keys(ratesData).map(((rate) => (
                                             <option
-                                                key={currency}
+                                                key={rate}
                                                 value={currency}
                                             >
                                                 {currency}
