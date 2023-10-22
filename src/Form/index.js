@@ -23,7 +23,7 @@ export const Form = () => {
     const ratesData = useRatesData();
 
     const calculateResult = (currency, amount) => {
-        const rate = ratesData;
+        const rate = ratesData.rates[currency];
 
         setResult({
             sourceAmount: +amount,
@@ -60,7 +60,8 @@ export const Form = () => {
                         <Failure>
                             Hmm... Coś poszło nie tak. Sprawdź czy masz połączenie z internetem?
                         </Failure>
-                    ) : (
+                    )
+                        : (
                             <>
                                 <p>
                                     <StyledLabel>
@@ -70,7 +71,6 @@ export const Form = () => {
                                         value={amount}
                                         onChange={({ target }) => setAmount(target.value)}
                                         placeholder="Wpisz kwotę w zł"
-                                        className="form__field"
                                         type="number"
                                         required
                                         step="0.01"
@@ -85,9 +85,9 @@ export const Form = () => {
                                         value={currency}
                                         onChange={({ target }) => setCurrency(target.value)}
                                     >
-                                        {Object.keys(ratesData).map(((rate) => (
+                                        {Object.keys(ratesData.rates).map(((currency) => (
                                             <option
-                                                key={rate}
+                                                key={currency}
                                                 value={currency}
                                             >
                                                 {currency}

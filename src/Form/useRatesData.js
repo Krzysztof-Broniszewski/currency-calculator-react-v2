@@ -23,7 +23,7 @@ export const useRatesData = () => {
 
                 setRatesData({
                     state: "success",
-                    rates: data.rates,
+                    rates: data[0].rates,
                     date: data.effectiveDate,
                 });
             } catch {
