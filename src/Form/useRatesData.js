@@ -7,8 +7,6 @@ export const useRatesData = () => {
 
     useEffect(() => {
 
-        console.log(ratesData);
-
         const fetchRates = async () => {
             try {
                 const response = await fetch("http://api.nbp.pl/api/exchangerates/tables/A/?format=json");
@@ -19,13 +17,15 @@ export const useRatesData = () => {
                 }
 
                 const data = await response.json();
-                // console.log(data);
+                console.log(data);
 
                 setRatesData({
                     state: "success",
                     rates: data[0].rates,
-                    date: data.effectiveDate,
+                    date: data[0].effectiveDate,
+                    table: data[0].no,
                 });
+                // console.log(ratesData);
             } catch {
                 setRatesData({
                     state: "error",
@@ -36,9 +36,10 @@ export const useRatesData = () => {
         setTimeout(fetchRates, 1000);
     }, []);
 
+    console.log(ratesData);
+
     return ratesData;
 };
-
     // useEffect(() => {
     //     const fetchRates = async () => {
     //         try {

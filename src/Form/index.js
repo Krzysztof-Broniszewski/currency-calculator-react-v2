@@ -27,7 +27,7 @@ export const Form = () => {
 
         setResult({
             sourceAmount: +amount,
-            targetAmount: amount * rate,
+            targetAmount: amount / rate,
             currency,
         });
     }
@@ -85,14 +85,14 @@ export const Form = () => {
                                         value={currency}
                                         onChange={({ target }) => setCurrency(target.value)}
                                     >
-                                        {Object.keys(ratesData.rates).map(((currency) => (
+                                        {(ratesData.rates).map((key, index) => (
                                             <option
-                                                key={currency}
-                                                value={currency}
+                                                key={ratesData.rates[key]}
+                                                value={ratesData.rates[index]}
                                             >
-                                                {currency}
+                                                {Object.values(ratesData.rates[index])}
                                             </option>
-                                        )))}
+                                        ))}
                                     </StyledField>
                                 </p>
                                 <p>
@@ -106,7 +106,7 @@ export const Form = () => {
             }
             
             <StyledInfo>
-                Kursy pochodzą ze strony nbp.pl&nbsp; Tabela nr 091/A/NBP/2023 z dnia 2023-05-12
+                Kursy pochodzą ze strony nbp.pl&nbsp; Tabela nr {ratesData.table} z dnia {ratesData.date}
             </StyledInfo>
             <Result result={result} />
             <Footer title="© 2022 Krzysztof Broniszewski -&nbsp; Wszelkie prawa zastrzeżone" />
