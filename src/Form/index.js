@@ -22,8 +22,8 @@ export const Form = () => {
     const [result, setResult] = useState();
     const ratesData = useRatesData();
 
-    const calculateResult = (currency, amount) => {
-        const rate = ratesData.rates[currency];
+    const calculateResult = (mid, amount) => {
+        const rate = ratesData.rates[mid];
 
         setResult({
             sourceAmount: +amount,
@@ -85,12 +85,20 @@ export const Form = () => {
                                         value={currency}
                                         onChange={({ target }) => setCurrency(target.value)}
                                     >
-                                        {(ratesData.rates).map((key, index) => (
+                                        {/* {(ratesData.rates).map((key, index) => (
                                             <option
                                                 key={ratesData.rates[key]}
                                                 value={ratesData.rates[index]}
                                             >
                                                 {Object.values(ratesData.rates[index])}
+                                            </option>
+                                        ))} */}
+                                        {(ratesData.rates).map(({ code, currency }) => (
+                                            <option
+                                                key={code}
+                                                value={code}
+                                            >
+                                                {currency}
                                             </option>
                                         ))}
                                     </StyledField>
