@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import { currencies } from "../currencies";
 import Result from "../Result";
 import Footer from "../Footer";
@@ -22,18 +22,18 @@ export const Form = () => {
     const [result, setResult] = useState();
     const ratesData = useRatesData();
 
-    const calculateResult = (mid, amount) => {
-        const rate = ratesData.rates[mid];
+    const calculateResult = (currency, amount) => {
+        const rate = ratesData.rates[currency];
 
         setResult({
             sourceAmount: +amount,
-            targetAmount: amount / rate,
+            targetAmount: amount * rate,
             currency,
         });
     }
 
-    const [currency, setCurrency] = useState("EUR");
-    const [amount, setAmount] = useState("");
+    const [currency, setCurrency] = useState();
+    const [amount, setAmount] = useState();
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -41,7 +41,7 @@ export const Form = () => {
     }
 
     // const rates = ratesData ? Object.keys(ratesData) : [];
-
+    
     return (
         <StyledForm
             onSubmit={onSubmit}>
@@ -93,14 +93,14 @@ export const Form = () => {
                                                 {Object.values(ratesData.rates[index])}
                                             </option>
                                         ))} */}
-                                        {(ratesData.rates).map(({ code, currency }) => (
+                                        {Object.keys(ratesData.rates).map(((currency) => (
                                             <option
-                                                key={code}
-                                                value={code}
+                                                key={currency}
+                                                value={currency}
                                             >
                                                 {currency}
                                             </option>
-                                        ))}
+                                        )))}
                                     </StyledField>
                                 </p>
                                 <p>
@@ -114,7 +114,7 @@ export const Form = () => {
             }
             
             <StyledInfo>
-                Kursy pochodzą ze strony nbp.pl&nbsp; Tabela nr {ratesData.table} z dnia {ratesData.date}
+                Kursy pochodzą ze strony nbp.pl&nbsp; Tabela nr x z dnia x
             </StyledInfo>
             <Result result={result} />
             <Footer title="© 2022 Krzysztof Broniszewski -&nbsp; Wszelkie prawa zastrzeżone" />

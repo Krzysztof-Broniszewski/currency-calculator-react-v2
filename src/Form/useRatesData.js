@@ -6,26 +6,29 @@ export const useRatesData = () => {
     });
 
     useEffect(() => {
+        const URL = "https://api.currencyapi.com/v3/latest?apikey=cur_live_IowjZ3bGQzVUQKoi27LcgncJasjcbmW7qx6lCst9";
 
         const fetchRates = async () => {
             try {
-                const response = await fetch("http://api.nbp.pl/api/exchangerates/tables/A/?format=json");
+                const response = await fetch(URL);
                 // console.log(response)
 
                 if (!response.ok) {
                     throw new Error(response.statusText);
                 }
 
-                const data = await response.json();
-                console.log(data);
-
+                const { rates, date } = await response.json();
+                console.log(rates);
+                console.log(date);
                 setRatesData({
                     state: "success",
-                    rates: data[0].rates,
-                    date: data[0].effectiveDate,
-                    table: data[0].no,
+                    rates,
+                    date,
+                    // rates: data[0].data,
+                    // date: data[0].last_updated_at,
+                    // table: data[0].last_updated_at,
                 });
-                // console.log(ratesData);
+                console.log(ratesData);
             } catch {
                 setRatesData({
                     state: "error",
