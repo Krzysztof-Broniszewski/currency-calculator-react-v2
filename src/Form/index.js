@@ -32,8 +32,8 @@ export const Form = () => {
         });
     }
 
-    const [currency, setCurrency] = useState();
-    const [amount, setAmount] = useState();
+    const [currency, setCurrency] = useState("usd");
+    const [amount, setAmount] = useState(100);
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -98,7 +98,7 @@ export const Form = () => {
                                                 key={currency}
                                                 value={currency}
                                             >
-                                                {currency}
+                                                {currency.toUpperCase()}
                                             </option>
                                         )))}
                                     </StyledField>
@@ -114,7 +114,7 @@ export const Form = () => {
             }
             
             <StyledInfo>
-                Kursy pochodzą ze strony nbp.pl&nbsp; Tabela nr x z dnia x
+                Kursy walut z dnia {ratesData.date}
             </StyledInfo>
             <Result result={result} />
             <Footer title="© 2022 Krzysztof Broniszewski -&nbsp; Wszelkie prawa zastrzeżone" />
