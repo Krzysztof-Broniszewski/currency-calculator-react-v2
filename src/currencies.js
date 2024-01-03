@@ -1,6 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // import axios from "axios";
 import { useEffect, useState } from "react";
+=======
+// import axios from 'axios';
+>>>>>>> origin/currencies-from-cdn
 
 export const currencies = [
     {
@@ -30,6 +34,7 @@ export const currencies = [
     },
 ];
 
+<<<<<<< HEAD
 // export const currencies2 = 
 
 //     fetch('https://api.exchangerate.host/latest?base=EUR')
@@ -118,3 +123,16 @@ export const currencies = [
     },
 ];
 >>>>>>> features
+=======
+
+// export const axiosNbp = async () => {
+//     try {
+//         const response = await axios.get('http://api.nbp.pl/api/exchangerates/tables/A/?format=json')
+//         return response
+//     } catch (error) {
+//         console.error(error);
+//     }
+// };
+
+// axiosNbp();
+>>>>>>> origin/currencies-from-cdn

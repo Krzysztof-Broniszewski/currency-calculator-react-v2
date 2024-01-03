@@ -51,11 +51,16 @@ export const StyledLabel = styled.span`
 `;
 
 export const Loading = styled.p`
+<<<<<<< HEAD
     color: ${({ theme }) => theme.color.teal};
+=======
+    color: ${({ theme }) => theme.color.maroon};
+>>>>>>> origin/currencies-from-cdn
 `;
 
 export const Failure = styled.p`
     color: ${({ theme }) => theme.color.red};
+<<<<<<< HEAD
 `; 
 
 =======
@@ -111,3 +116,7 @@ export const StyledLabel = styled.span`
 `;
 
 >>>>>>> features
+=======
+`;
+
+>>>>>>> origin/currencies-from-cdn
