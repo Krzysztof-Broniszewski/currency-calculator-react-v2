@@ -6,7 +6,7 @@ export const useRatesData = () => {
     });
 
     useEffect(() => {
-        const URL = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api/latest/currencies/pln.json";
+        const URL = "https://api.currencyapi.com/v3/latest?apikey=cur_live_IowjZ3bGQzVUQKoi27LcgncJasjcbmW7qx6lCst9&base_currency=PLN";
 
         const fetchRates = async () => {
             try {
@@ -17,13 +17,12 @@ export const useRatesData = () => {
                     throw new Error(response.statusText);
                 }
 
-                const { pln, date } = await response.json();
+                const { data } = await response.json();
                 // console.log(pln);
                 // console.log(date);
                 setRatesData({
                     state: "success",
-                    rates: pln,
-                    date: date,
+                    data,
                     // rates: data[0].data,
                     // date: data[0].last_updated_at,
                     // table: data[0].last_updated_at,

@@ -21,9 +21,12 @@ import { useRatesData } from "./useRatesData";
 export const Form = () => {
     const [result, setResult] = useState();
     const ratesData = useRatesData();
+    console.log(ratesData);
+    // const date_ = ratesData.meta.last_updated_at;
+    // console.log(date_);
 
     const calculateResult = (currency, amount) => {
-        const rate = ratesData.rates[currency];
+        const rate = ratesData?.data?.[currency].value;
 
         setResult({
             sourceAmount: +amount,
@@ -93,7 +96,7 @@ export const Form = () => {
                                                 {Object.values(ratesData.rates[index])}
                                             </option>
                                         ))} */}
-                                        {Object.keys(ratesData.rates).map(((currency) => (
+                                        {Object.keys(ratesData.data).map(((currency) => (
                                             <option
                                                 key={currency}
                                                 value={currency}
@@ -114,7 +117,7 @@ export const Form = () => {
             }
             
             <StyledInfo>
-                Kursy walut z dnia {ratesData.date}
+                Kursy walut z dnia {'date_'}
             </StyledInfo>
             <Result result={result} />
             <Footer title="© 2022 Krzysztof Broniszewski -&nbsp; Wszelkie prawa zastrzeżone" />
