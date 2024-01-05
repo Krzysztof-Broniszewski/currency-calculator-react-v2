@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 // import { currencies } from "../currencies";
 import Result from "../Result";
 import Footer from "../Footer";
@@ -22,8 +22,8 @@ export const Form = () => {
     const [result, setResult] = useState();
     const ratesData = useRatesData();
     console.log(ratesData);
-    // const date_ = ratesData.meta.last_updated_at;
-    // console.log(date_);
+    const date_ = "tu ma byc data";
+    console.log(date_);
 
     const calculateResult = (currency, amount) => {
         const rate = ratesData?.data?.[currency].value;
@@ -117,7 +117,7 @@ export const Form = () => {
             }
             
             <StyledInfo>
-                Kursy walut z dnia {'date_'}
+                Kursy walut z dnia {date_}
             </StyledInfo>
             <Result result={result} />
             <Footer title="© 2022 Krzysztof Broniszewski -&nbsp; Wszelkie prawa zastrzeżone" />

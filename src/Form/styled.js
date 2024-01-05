@@ -27,6 +27,7 @@ export const StyledInfo = styled.p`
 export const StyledField = styled.select`
     border-radius: 5px;
     text-align: center;
+    min-width: 200px;
 `;
 
 export const StyledInput = styled.input`

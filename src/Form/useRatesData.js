@@ -17,12 +17,13 @@ export const useRatesData = () => {
                     throw new Error(response.statusText);
                 }
 
-                const { data } = await response.json();
+                const { meta, data } = await response.json();
                 // console.log(pln);
                 // console.log(date);
                 setRatesData({
                     state: "success",
                     data,
+                    meta,
                     // rates: data[0].data,
                     // date: data[0].last_updated_at,
                     // table: data[0].last_updated_at,
