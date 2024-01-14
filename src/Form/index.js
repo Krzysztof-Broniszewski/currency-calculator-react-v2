@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-// import { currencies } from "../currencies";
+import { useState } from "react";
 import Result from "../Result";
 import Footer from "../Footer";
 import Clock from "../Clock";
@@ -40,8 +39,6 @@ export const Form = () => {
         calculateResult(currency, amount);
     }
 
-    // const rates = ratesData ? Object.keys(ratesData) : [];
-    
     return (
         <StyledForm
             onSubmit={onSubmit}>
@@ -85,14 +82,6 @@ export const Form = () => {
                                         value={currency}
                                         onChange={({ target }) => setCurrency(target.value)}
                                     >
-                                        {/* {(ratesData.rates).map((key, index) => (
-                                            <option
-                                                key={ratesData.rates[key]}
-                                                value={ratesData.rates[index]}
-                                            >
-                                                {Object.values(ratesData.rates[index])}
-                                            </option>
-                                        ))} */}
                                         {Object.keys(ratesData.rates).map(((currency) => (
                                             <option
                                                 key={currency}
