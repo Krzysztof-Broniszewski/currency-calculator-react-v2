@@ -106,7 +106,7 @@ export const Form = () => {
                 Kursy walut z dnia {ratesData.date}
             </StyledInfo>
             <Result result={result} />
-            <Footer title="© 2022 Krzysztof Broniszewski -&nbsp; Wszelkie prawa zastrzeżone" />
+            <Footer title="© 2024 Krzysztof Broniszewski -&nbsp; Wszelkie prawa zastrzeżone" />
         </StyledForm>
     );
 };
