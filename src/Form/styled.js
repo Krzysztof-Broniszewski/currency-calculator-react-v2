@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledForm = styled.form`
     background-color: ${({ theme }) => theme.color.lightBrown};
     color: ${({ theme }) => theme.color.black};
+    height: 80vh;
     font-size: 25px;
     padding: 10px;
     margin: auto;
@@ -10,6 +11,8 @@ export const StyledForm = styled.form`
     border: 2px solid ${({ theme }) => theme.color.maroon};;
     text-align: center;
     justify-content: center;
+    display: flex;
+    flex-direction: column;
 `;
 
 export const StyledHeader = styled.h1`
@@ -25,11 +28,15 @@ export const StyledInfo = styled.p`
 `;
 
 export const StyledField = styled.select`
+    margin-right: 5%;
+    width: 30%;
     border-radius: 5px;
     text-align: center;
 `;
 
 export const StyledInput = styled.input`
+    margin-right: 5%;
+    width: 30%;
     border-radius: 5px;
     text-align: center;
 `;

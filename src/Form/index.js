@@ -46,14 +46,14 @@ export const Form = () => {
             <StyledHeader>
                 Przelicznik walut
             </StyledHeader>
-            {ratesData.state === "loading"
+            {ratesData.status === "loading"
                 ? (
                     <Loading>
                         Sekundka... <br />Ładuję kursy walut ze strony NBP
                     </Loading>
                 )
                 : (
-                    ratesData.state === "error" ? (
+                    ratesData.status === "error" ? (
                         <Failure>
                             Hmm... Coś poszło nie tak. Sprawdź czy masz połączenie z internetem?
                         </Failure>

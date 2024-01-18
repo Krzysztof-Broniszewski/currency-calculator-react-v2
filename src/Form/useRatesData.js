@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
+const URL = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api/latest/currencies/pln.json";
+
 export const useRatesData = () => {
     const [ratesData, setRatesData] = useState({
-        state: "loading",
+        status: "loading",
     });
 
     useEffect(() => {
-        const URL = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api/latest/currencies/pln.json";
-
         const fetchRates = async () => {
             try {
                 const response = await fetch(URL);
@@ -18,13 +18,13 @@ export const useRatesData = () => {
 
                 const { pln, date } = await response.json();
                 setRatesData({
-                    state: "success",
+                    status: "success",
                     rates: pln,
                     date: date,
                 });
             } catch {
                 setRatesData({
-                    state: "error",
+                    status: "error",
                 });
             }
         };
