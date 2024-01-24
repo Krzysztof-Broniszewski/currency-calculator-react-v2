@@ -11,12 +11,14 @@ export const StyledForm = styled.form`
     border: 2px solid ${({ theme }) => theme.color.maroon};;
     text-align: center;
     justify-content: center;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(8, 1fr);
 `;
 
 export const StyledHeader = styled.h1`
     background-color: transparent;
+    grid-area: 2 / 1 / 3 / -1;
     font-size: 40px;
     font-weight: bold;
     text-shadow: ${({theme}) => theme.color.black};
@@ -28,15 +30,15 @@ export const StyledInfo = styled.p`
 `;
 
 export const StyledField = styled.select`
-    margin-right: 5%;
-    width: 30%;
+    width: 200px;
+    align-items: right;
     border-radius: 5px;
     text-align: center;
 `;
 
 export const StyledInput = styled.input`
-    margin-right: 5%;
-    width: 30%;
+    width: 200px;
+    align-items: right;
     border-radius: 5px;
     text-align: center;
 `;
@@ -45,6 +47,7 @@ export const StyledButton = styled.button`
     background-color: ${({ theme }) => theme.color.maroon};
     color: ${({theme}) => theme.color.white};
     font-size: 25px;
+    grid-area: 4 / 1 / 5 / -1;
     margin-top: 5px;
     padding: 10px 30px;
     border: 2px solid ${({ theme }) => theme.color.white};
